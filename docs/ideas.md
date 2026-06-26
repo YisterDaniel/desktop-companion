@@ -1,0 +1,5 @@
+- Animated water droplet mascot
+- Volleyball hydration profile
+- Daily streaks
+- Stretch database
+- Calendar integration
