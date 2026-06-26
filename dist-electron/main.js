@@ -12,9 +12,20 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 
 let win;
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+    width: 280,
+    height: 320,
+    resizable: false,
+    maximizable: false,
+    minimizable: true,
+    alwaysOnTop: true,
+    frame: false,
+    // removes title bar (important for widget look)
+    skipTaskbar: true,
+    // hides from taskbar (feels like a widget)
     webPreferences: {
-      preload: path.join(__dirname$1, "preload.mjs")
+      preload: path.join(__dirname$1, "preload.mjs"),
+      contextIsolation: true,
+      nodeIntegration: false
     }
   });
   win.webContents.on("did-finish-load", () => {

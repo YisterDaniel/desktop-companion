@@ -28,9 +28,23 @@ let win: BrowserWindow | null
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
+    width: 280,
+    height: 320,
+
+    resizable: false,
+    maximizable: false,
+    minimizable: true,
+
+    alwaysOnTop: true,
+
+    frame: false, // removes title bar (important for widget look)
+
+    skipTaskbar: true, // hides from taskbar (feels like a widget)
+
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
+      contextIsolation: true,
+      nodeIntegration: false,
     },
   })
 
