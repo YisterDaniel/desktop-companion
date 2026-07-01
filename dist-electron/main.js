@@ -12,16 +12,18 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 
 let win;
 function createWindow() {
   win = new BrowserWindow({
-    width: 280,
-    height: 320,
+    width: 320,
+    height: 280,
     resizable: false,
     maximizable: false,
     minimizable: true,
     alwaysOnTop: true,
     frame: false,
-    // removes title bar (important for widget look)
     skipTaskbar: true,
-    // hides from taskbar (feels like a widget)
+    transparent: true,
+    backgroundColor: "#00000000",
+    hasShadow: false,
+    // IMPORTANT for clean widget look
     webPreferences: {
       preload: path.join(__dirname$1, "preload.mjs"),
       contextIsolation: true,
